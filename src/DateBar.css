@@ -1,0 +1,25 @@
+.NavBar {
+    width: 10%;
+    text-align: center;
+    height: 100vh;
+    display: grid;
+    background-color: black;
+}
+
+.NavBarElement {
+    padding: 20%;
+    height: 100%;
+    color: white;
+}
+
+.NavBarElement:hover{
+    background-color: white;
+    color: black;
+}
+
+.NavBarElementToday {
+    color: black;
+    background-color: white;
+    border-radius: 2px;
+    pointer-events: none;
+}
