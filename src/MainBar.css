@@ -1,0 +1,28 @@
+.month {
+    position: relative;
+    height: 10vh;
+    font-size: 20px;
+    padding: 25px;
+
+}
+.left-elements {
+    display: flex;
+    padding-left: 2%;
+}
+
+
+.main {
+    display: flex;
+    justify-content: space-between;
+    background-color: black;
+    color: white;
+}
+.button{
+    margin-top: 2.5vh;
+    height: 5vh;
+}
+
+.calendar {
+    margin-right: 25px;
+    display: grid;
+}

@@ -1,29 +1,36 @@
 import './DateBar.css'
-import {useState} from "react";
-function DateBar(){
+
+interface propsObject{
+    presentDate: Date,
+    updateDateState: (date: Date)=> void,
+}
+function DateBar({presentDate, updateDateState} :propsObject){
 
     //
-    const presentDate = new Date()
-    const [selectedDate, updateSelectedDate] = useState(presentDate.getDate())
+    const days :string[] = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
     const dateList :Date[] = []
 
     //Date Generator
-    for(let i = -4; i < 5; i++){
-        dateList.push( new Date(presentDate.getFullYear(), presentDate.getMonth(), presentDate.getDate()+ i))
+    for(let i = 0; i < 7; i++){
+        dateList.push( new Date(presentDate.getFullYear(), presentDate.getMonth(), presentDate.getDate()- presentDate.getDay() + i))
     }
 
     const updateDate = (date :Date)=>{
-        updateSelectedDate(date.getDate())
+        updateDateState(date)
     }
 
     // Element Generator
     const generateNavBarDate = ()=>{
         return dateList.map((date)=>{
-            return (<div
-                className={"NavBarElement" + (selectedDate === date.getDate() ? " NavBarElementToday": "")}
-                onClick={()=>{updateDate(date)}}>
-                {date.getDate()}
-            </div>)
+            return (
+                <div
+                    key={date.getDay()}
+                    className={"NavBarElement col" + (presentDate.getDate() === date.getDate() ? " NavBarElementToday": "")}
+                    onClick={()=>{updateDate(date)}}>
+                    {days[date.getDay()].slice(0, 3)}
+                    <br />
+                    {date.getDate()}
+                </div>)
         })
     }
 
