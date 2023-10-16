@@ -1,7 +1,7 @@
-import left from "./assets/arrow-left.svg";
-import right from "./assets/arrow-right.svg";
-import "./MainBar.css"
-import calendarIcon from "./assets/calendar.svg";
+import left from "../assets/arrow-left.svg";
+import right from "../assets/arrow-right.svg";
+import "../css/MainBar.css"
+import calendarIcon from "../assets/calendar.svg";
 
 interface propsObject{
     updateDate : (num :number)=> void,

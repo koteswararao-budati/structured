@@ -1,0 +1,45 @@
+.calendarCard {
+    height: 45vh;
+    width: 33vw;
+    background-color: white;
+    display: grid;
+    border-radius: 2px;
+    position: fixed;
+    top: 30%;
+    left: 33%;
+    justify-items: center;
+}
+
+.jumpButton {
+    height: 5vh;
+    width: 90%;
+    background-color: black;
+    margin-bottom: 20px;
+    position: relative;
+    top: 50%;
+}
+
+.calendarDates {
+    display: grid;
+    grid-template-columns: auto auto auto auto auto auto auto;
+    width: 100%;
+    text-align: center;
+}
+
+.calendarDatesItems {
+    padding-top: 10%;
+    align-content: center;
+    justify-content: center;
+}
+
+.presentDay {
+    padding-top: 10%;
+    background-color: black;
+    color: white;
+    border-radius: 5px;
+}
+
+.calendarDatesItems:hover {
+    background-color: darkgray;
+    border-radius: 5px;
+}

@@ -1,4 +1,4 @@
-import './DateBar.css'
+import '../css/DateBar.css'
 
 interface propsObject{
     presentDate: Date,
