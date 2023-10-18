@@ -1,23 +1,22 @@
 import './css/App.css'
-import DateBar from "./Components/DateBar.tsx";
-import MainBar from "./Components/MainBar.tsx";
-import {useState} from "react";
-import Calendar from "./Components/Calendar.tsx";
+import DateBar from "./Components/DateBar/DateBar.tsx";
+import MainBar from "./Components/MainBar/MainBar.tsx";
+import {AppRenderContext, AppRenderState} from "./Context/AppRenderContext.tsx";
+import {useContext} from "react";
+import Calendar from "./Components/Calendar/Calendar.tsx";
 
 function App() {
-
-    const [currentDate, updateCurrentDate] = useState(new Date())
-
-    const updateWeek = (num :number)=>{
-        updateCurrentDate(new Date(currentDate.getFullYear(), currentDate.getMonth(), currentDate.getDate() + num))
-    }
-
+    const appRenderState = useContext(AppRenderState)
+    const {state} = appRenderState
     return (
         <div className={"main-app"}>
-            <MainBar updateDate={updateWeek} presentDate={currentDate} />
-            <DateBar presentDate={currentDate} updateDateState={updateCurrentDate}/>
-            <Calendar updateDateState={updateCurrentDate}/>
+            <AppRenderContext>
+                <MainBar/>
+                <DateBar/>
+                {state.displayCalendar && <Calendar/>}
+            </AppRenderContext>
         </div>
     )
 }
+
 export default App
