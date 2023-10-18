@@ -6,12 +6,12 @@ import {AppRenderState} from "../../Context/AppRenderContext.tsx";
 export default function DatesGenerator() {
     //State Declaration
     const appState = useContext(AppRenderState)
-    const {todayDate} = appState.state
+    const {calendarDate} = appState.state
     const dispatch = appState.dispatch
 
     // Variable Declaration
-    const days = new Date(todayDate.getFullYear(), todayDate.getMonth() + 1, 0);
-    const startDay = new Date(todayDate.getFullYear(), todayDate.getMonth(), 1)
+    const days = new Date(calendarDate.getFullYear(), calendarDate.getMonth() + 1, 0);
+    const startDay = new Date(calendarDate.getFullYear(), calendarDate.getMonth(), 1)
     const dateList: number[] = []
     const daysList = DAYS
 
@@ -25,7 +25,7 @@ export default function DatesGenerator() {
         if (dispatch !== null) {
             dispatch({
                 type: APP_STATE_CONSTANTS.calendarDate,
-                payload: new Date(todayDate.getFullYear(), todayDate.getMonth(), date)
+                payload: new Date(calendarDate.getFullYear(), calendarDate.getMonth(), date)
             })
         }
     }
@@ -35,7 +35,7 @@ export default function DatesGenerator() {
     const dateGenerator = () => {
         return dateList.map((date, index) => {
             return <div key={index}
-                        className={todayDate.getDate() === date ? styles.todayDate : styles.calendarDatesItems}
+                        className={calendarDate.getDate() === date ? styles.presentDay : styles.calendarDatesItems}
                         onClick={date > 0 ? () => updateCalendarDate(date) : () => null}
             >{date > 0 ? date : ""}</div>
         })

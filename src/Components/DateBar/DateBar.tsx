@@ -6,9 +6,8 @@ import {AppRenderState} from "../../Context/AppRenderContext.tsx";
 function DateBar() {
 
     const appContext = useContext(AppRenderState)
-    const state = appContext.state
+    const {selectedDate} = appContext.state
     const dispatch = appContext.dispatch
-    const presentDate = state.todayDate
 
     //
     const days: string[] = DAYS
@@ -16,9 +15,10 @@ function DateBar() {
 
     //Date Generator
     for (let i = 0; i < 7; i++) {
-        dateList.push(new Date(presentDate.getFullYear(), presentDate.getMonth(), presentDate.getDate() - presentDate.getDay() + i))
+        dateList.push(new Date(selectedDate.getFullYear(), selectedDate.getMonth(), selectedDate.getDate() - selectedDate.getDay() + i))
     }
 
+    // update selected date
     const updateDate = (date: Date) => {
         if (dispatch !== null) {
             dispatch({type: APP_STATE_CONSTANTS.selectedDate, payload: date})
@@ -31,7 +31,7 @@ function DateBar() {
             return (
                 <div
                     key={date.getDay()}
-                    className={"NavBarElement col" + (presentDate.getDate() === date.getDate() ? " NavBarElementToday" : "")}
+                    className={"NavBarElement col" + (selectedDate.getDate() === date.getDate() ? " NavBarElementToday" : "")}
                     onClick={() => {
                         updateDate(date)
                     }}>

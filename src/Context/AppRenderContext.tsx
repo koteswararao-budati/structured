@@ -2,6 +2,7 @@ import React, {createContext, ReactNode, useReducer} from "react";
 
 interface Action {
     type: string,
+    // eslint-disable-next-line
     payload: any
 }
 
@@ -18,7 +19,7 @@ const initialState: State = {
     selectedDate: new Date(),
     calendarDate: new Date(),
     currentWeek: 0,
-    displayCalendar: true
+    displayCalendar: false
 }
 
 export function AppStateFunction(state: State, action: Action) {
