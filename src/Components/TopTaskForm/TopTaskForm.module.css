@@ -1,0 +1,53 @@
+.topTaskForm {
+    position: fixed;
+    top: 15%;
+    left: 30%;
+    background-color: #ffffff;
+    color: black;
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 0 10px 10px 0;
+    height: 77vh;
+    width: 40vw;
+    z-index: 3;
+    display: grid;
+    grid-template-rows: auto auto 4vh;
+    justify-items: center;
+    justify-content: center;
+}
+
+.tasks {
+    font-size: 15px;
+    border: 1px solid black;
+    border-radius: 2px;
+    margin: 20px 10px;
+    padding: 10px;
+    width: 38vw;
+}
+
+.tasks h3 {
+    font-size: 20px;
+    background-color: black;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.tasks div {
+    margin: 20px 0;
+    padding: 5px 2px;
+}
+
+.submitTask {
+    position: relative;
+    width: 38vw;
+    background-color: black;
+    color: white;
+    border: 1px solid black;
+    border-radius: 2px;
+    margin-left: 9px;
+}
+
+.submitTask:hover {
+    background-color: #f1f1f1;
+}

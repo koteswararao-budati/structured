@@ -1,4 +1,5 @@
 import React, {createContext, ReactNode, useReducer} from "react";
+import {APP_STATE_CONSTANTS} from "../Constants/CONSTANTS.ts";
 
 interface Action {
     type: string,
@@ -23,11 +24,10 @@ const initialState: State = {
 }
 
 export function AppStateFunction(state: State, action: Action) {
-    console.log(action)
     switch (action.type) {
-        case "CALENDAR_DATE":
+        case APP_STATE_CONSTANTS.calendarDate:
             return {...state, calendarDate: action.payload}
-        case "CURRENT_WEEK":
+        case APP_STATE_CONSTANTS.currentWeek:
             // eslint-disable-next-line no-case-declarations
             const currentWeek = state.currentWeek + action.payload
             // eslint-disable-next-line no-case-declarations
@@ -39,9 +39,9 @@ export function AppStateFunction(state: State, action: Action) {
                 ...state, currentWeek: currentWeek,
                 selectedDate: updateSelectedDate
             }
-        case "SELECTED_DATE":
+        case APP_STATE_CONSTANTS.selectedDate:
             return {...state, selectedDate: action.payload}
-        case "CALENDAR_DISPLAY":
+        case APP_STATE_CONSTANTS.calendarDisplay:
             return {...state, displayCalendar: action.payload}
         default:
             return state
