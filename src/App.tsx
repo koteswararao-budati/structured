@@ -7,13 +7,14 @@ import Calendar from "./Components/Calendar/Calendar.tsx";
 
 function App() {
     const appRenderState = useContext(AppRenderState)
-    const {state} = appRenderState
+    const {displayCalendar} = appRenderState.state
+
     return (
         <div className={"main-app"}>
             <AppRenderContext>
                 <MainBar/>
                 <DateBar/>
-                {state.displayCalendar && <Calendar/>}
+                {displayCalendar && <Calendar/>}
             </AppRenderContext>
         </div>
     )

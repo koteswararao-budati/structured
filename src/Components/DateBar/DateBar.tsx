@@ -1,12 +1,11 @@
 import './DateBar.css'
-import {DAYS} from "../../Constants/CONSTANTS.ts";
+import {APP_STATE_CONSTANTS, DAYS} from "../../Constants/CONSTANTS.ts";
 import {useContext} from "react";
 import {AppRenderState} from "../../Context/AppRenderContext.tsx";
 
 function DateBar() {
 
     const appContext = useContext(AppRenderState)
-    console.log(appContext)
     const state = appContext.state
     const dispatch = appContext.dispatch
     const presentDate = state.todayDate
@@ -21,7 +20,9 @@ function DateBar() {
     }
 
     const updateDate = (date: Date) => {
-        dispatch(state, {type: "SELECTED_DATE", payload: date})
+        if (dispatch !== null) {
+            dispatch({type: APP_STATE_CONSTANTS.selectedDate, payload: date})
+        }
     }
 
     // Element Generator

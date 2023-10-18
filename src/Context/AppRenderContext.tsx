@@ -1,7 +1,7 @@
 import React, {createContext, ReactNode, useReducer} from "react";
 
 interface Action {
-    type: "CALENDAR_DATE" | "CURRENT_WEEK" | "CALENDAR_DISPLAY" | "SELECTED_DATE",
+    type: string,
     payload: any
 }
 
@@ -25,13 +25,23 @@ export function AppStateFunction(state: State, action: Action) {
     console.log(action)
     switch (action.type) {
         case "CALENDAR_DATE":
-            return {...state, calenderDate: action.payload}
+            return {...state, calendarDate: action.payload}
         case "CURRENT_WEEK":
-            return {...state, currentWeek: action.payload}
+            // eslint-disable-next-line no-case-declarations
+            const currentWeek = state.currentWeek + action.payload
+            // eslint-disable-next-line no-case-declarations
+            const {selectedDate} = state
+            // eslint-disable-next-line no-case-declarations
+            const updateSelectedDate = new Date(selectedDate.getFullYear(), selectedDate.getMonth(), selectedDate.getDate() + action.payload)
+            console.log(updateSelectedDate)
+            return {
+                ...state, currentWeek: currentWeek,
+                selectedDate: updateSelectedDate
+            }
         case "SELECTED_DATE":
             return {...state, selectedDate: action.payload}
         case "CALENDAR_DISPLAY":
-            return {...state, displayCalender: action.payload}
+            return {...state, displayCalendar: action.payload}
         default:
             return state
     }
