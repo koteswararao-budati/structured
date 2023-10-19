@@ -1,16 +1,17 @@
 import './css/App.css'
 import {AppRenderContext} from "./Context/AppRenderContext.tsx";
 import Navigation from "./Components/Navigation/Navigation.tsx";
-import TopTasks from "./Components/TopTasks/TopTasks.tsx";
-import TopTaskForm from "./Components/TopTaskForm/TopTaskForm.tsx";
+import TodoTasks from "./Components/TodoTasks/TodoTasks.tsx";
+import {ToDoContext} from "./Context/ToDoContext.tsx";
 
 function App() {
     return (
         <div className={"main-app"}>
             <AppRenderContext>
-                <Navigation/>
-                <TopTasks/>
-                <TopTaskForm/>
+                <ToDoContext>
+                    <Navigation/>
+                    <TodoTasks/>
+                </ToDoContext>
             </AppRenderContext>
         </div>
     )
