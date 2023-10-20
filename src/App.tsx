@@ -5,6 +5,8 @@ import TodoTasks from "./Components/TodoTasks/TodoTasks.tsx";
 import {ToDoContext} from "./Context/ToDoContext.tsx";
 
 function App() {
+    document.title = "Structured";
+    console.log(1)
     return (
         <div className={"main-app"}>
             <AppRenderContext>

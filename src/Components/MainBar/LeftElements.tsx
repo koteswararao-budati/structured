@@ -26,9 +26,11 @@ export default function LeftElements() {
             <div className={"month"}>
                 {months[date.getMonth()]} {date.getFullYear()}
             </div>
-            <button className={"button btn btn-light"} onClick={() => updateWeek(+7)}><b><img src={right}
-                                                                                              alt={"right"}/></b>
-            </button>
+            <div>
+                <button className={"button btn btn-light"} onClick={() => updateWeek(+7)}><b><img src={right}
+                                                                                                  alt={"right"}/></b>
+                </button>
+            </div>
         </div>
     )
 }

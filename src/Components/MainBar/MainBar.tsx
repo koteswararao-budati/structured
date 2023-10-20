@@ -4,6 +4,7 @@ import {APP_STATE_CONSTANTS} from "../../Constants/CONSTANTS.ts";
 import {useContext} from "react";
 import {AppRenderState} from "../../Context/AppRenderContext.tsx";
 import LeftElements from "./LeftElements.tsx";
+import house from "../../assets/house.svg";
 
 function MainBar() {
 
@@ -20,11 +21,28 @@ function MainBar() {
         }
     }
 
+    const updateHome = () => {
+        if (dispatch !== null) {
+            dispatch({
+                type: APP_STATE_CONSTANTS.selectedDate,
+                payload: state.todayDate
+            })
+
+            dispatch({
+                type: APP_STATE_CONSTANTS.calendarDate,
+                payload: state.todayDate
+            })
+        }
+    }
+
 
     return (
         <div className={"main"}>
             <LeftElements/>
             <div>
+                <button className={"home button btn btn-light"} onClick={updateHome}>
+                    <img src={house} alt={"Home"}/>
+                </button>
                 <button className={"button calendar btn btn-light"}
                         onClick={updateCalendarDate}>
                     <img src={calendarIcon} alt={""}/>
