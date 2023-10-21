@@ -11,11 +11,11 @@ interface State {
     todoTask: boolean
 }
 
-export const initialState: State = {
+const initialState: State = {
     todoTask: false
 }
 
-export function TodoStateFunction(state: State, action: Action): State {
+function TodoStateFunction(state: State, action: Action): State {
     console.log(action)
     switch (action.type) {
         case TODO_STATE_CONSTANTS.todoTask:
