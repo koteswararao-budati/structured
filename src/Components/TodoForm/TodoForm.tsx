@@ -1,6 +1,6 @@
 import styles from "./TodoForm.module.css"
 import close from "../../assets/close.svg"
-import {useContext, useEffect, useRef} from "react";
+import {useContext, useEffect, useRef, useState} from "react";
 import {AppRenderState} from "../../Context/AppRenderContext.tsx";
 import {MONTHS, TODO_STATE_CONSTANTS} from "../../Constants/CONSTANTS.ts";
 import {TodoTasksContext} from "../../Context/ToDoContext.tsx";
@@ -10,10 +10,12 @@ function TodoForm() {
     const {selectedDate} = useContext(AppRenderState).state
     const {dispatch} = useContext(TodoTasksContext)
     const inputRef = useRef<HTMLInputElement | null>(null);
-
+    const [buttonFlag, setButtonFlag] = useState<null | string>(null)
     const svgGenerator = () => {
         const svgList = ["red", "orange", "darkgreen"]
-        return svgList.map((color) => <button key={color} className={"btn btn-light"}><FlagSVG color={color}/></button>
+        return svgList.map((color) => <button key={color} onClick={() => setButtonFlag(color)}
+                                              className={styles.flagsButton + " " + (color === buttonFlag ? styles.selectedFlag : "")}>
+            <FlagSVG color={color}/></button>
         )
     }
     const closeTodo = () => {
@@ -27,7 +29,7 @@ function TodoForm() {
 
     useEffect(() => {
         inputRef.current?.focus()
-    }, []);
+    }, [buttonFlag]);
 
     return (
         <div className={styles.container}>

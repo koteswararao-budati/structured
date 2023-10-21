@@ -85,15 +85,18 @@
 }
 
 
-.flags img {
+.flagsButton {
     margin: 0 10px;
     padding: 0;
-    height: 20px;
-    width: 20px;
+    height: 40px;
+    width: 50px;
+    background-color: white;
+    border-radius: 8px;
+    border: 1px solid black;
 }
 
-.red {
-    fill: red;
+.selectedFlag {
+    background-color: #ebeceb;
 }
 
 .submit {
@@ -116,4 +119,5 @@
     background-color: white;
     color: black;
 }
+
 
