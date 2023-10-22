@@ -6,5 +6,6 @@ export const APP_STATE_CONSTANTS =
     {calendarDate: "CALENDAR_DATE", selectedDate: "SELECTED_DATE", currentWeek: "CURRENT_WEEK", calendarDisplay: "CALENDAR_DISPLAY"}
 
 export const TODO_STATE_CONSTANTS = {
-    todoTask: "TODO_TASK"
+    todoTask: "TODO_TASK",
+    todoList: "TODO_LIST_UPDATE"
 }

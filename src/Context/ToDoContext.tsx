@@ -7,19 +7,27 @@ interface Action {
     payload: any
 }
 
+interface Tasks {
+    date: Date,
+    toDo: string[]
+}
+
 interface State {
-    todoTask: boolean
+    todoTask: boolean,
+    tasks: Tasks[] | null
 }
 
 const initialState: State = {
-    todoTask: false
+    todoTask: false,
+    tasks: null
 }
 
 function TodoStateFunction(state: State, action: Action): State {
-    console.log(action)
     switch (action.type) {
         case TODO_STATE_CONSTANTS.todoTask:
             return {...state, todoTask: action.payload}
+        case TODO_STATE_CONSTANTS.todoList:
+            return state
         default:
             return state
     }
