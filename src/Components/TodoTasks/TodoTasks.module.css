@@ -2,9 +2,10 @@
     border: 1px solid white;
     border-top: .5px solid white;
     border-bottom: none;
-    height: 83.75vh;
+    height: 83.6875vh;
     display: grid;
     grid-template-rows: auto auto;
+    min-width: 400px;
 }
 
 .tasks * {
@@ -22,6 +23,10 @@
     color: white;
     border-bottom: 1px solid white;
     padding: 0 5px;
+}
+
+.heading h3 {
+    font-size: 25px;
 }
 
 .individualTask {

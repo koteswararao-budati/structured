@@ -31,7 +31,7 @@ function DateBar() {
             return (
                 <div
                     key={date.getDay()}
-                    className={"NavBarElement col" + (selectedDate.getDate() === date.getDate() ? " NavBarElementToday" : "")}
+                    className={"NavBarElement " + (selectedDate.getDate() === date.getDate() ? " NavBarElementToday" : "")}
                     onClick={() => {
                         updateDate(date)
                     }}>

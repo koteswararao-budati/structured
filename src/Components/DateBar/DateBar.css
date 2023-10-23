@@ -1,11 +1,12 @@
 .NavBar {
-    height: 8.125vh;
-    min-height: 65px;
+    width: 100%;
     text-align: center;
-    display: flex;
+    display: grid;
+    grid-template-columns: auto auto auto auto auto auto auto;
 }
 
 .NavBarElement {
+    min-width: 150px;
     padding: 10px;
     color: white;
     border-left: .5px solid white;

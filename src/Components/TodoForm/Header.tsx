@@ -19,7 +19,7 @@ export default function Header() {
     return (
         <div className={styles.close}>
             <h5>{selectedDate.getDate()}-{MONTHS[selectedDate.getMonth()]}-{selectedDate.getFullYear()}</h5>
-            <button onClick={closeTodo}>
+            <button className={"btn btn-light"} onClick={closeTodo}>
                 <img src={close} alt={"close"}/>
             </button>
         </div>
