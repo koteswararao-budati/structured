@@ -20,7 +20,7 @@ interface State {
 
 const initialState: State = {
     todoTask: false,
-    tasks: null
+    tasks: {date: new Date(), toDo: ["hello", "hi there", "how you Doing", "do Something", "how r u", "todo enter here"]}
 }
 
 function TodoStateFunction(state: State, action: Action): State {

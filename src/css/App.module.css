@@ -1,0 +1,9 @@
+.mainApp {
+    background-color: black;
+    max-height: 100vh;
+}
+
+.mainBody {
+    display: grid;
+    grid-template-columns: 42.89% 47.11%;
+}
