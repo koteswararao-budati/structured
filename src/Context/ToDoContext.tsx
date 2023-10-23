@@ -1,5 +1,6 @@
 import {TODO_STATE_CONSTANTS} from "../Constants/CONSTANTS.ts";
 import React, {createContext, ReactNode, useReducer} from "react";
+import axios from "axios";
 
 interface Action {
     type: string,
@@ -14,7 +15,7 @@ interface Tasks {
 
 interface State {
     todoTask: boolean,
-    tasks: Tasks[] | null
+    tasks: Tasks | null
 }
 
 const initialState: State = {
@@ -27,6 +28,10 @@ function TodoStateFunction(state: State, action: Action): State {
         case TODO_STATE_CONSTANTS.todoTask:
             return {...state, todoTask: action.payload}
         case TODO_STATE_CONSTANTS.todoList:
+            axios
+                .post("", action.payload)
+                .then(res => console.log(res))
+                .catch(err => console.log(err))
             return state
         default:
             return state
