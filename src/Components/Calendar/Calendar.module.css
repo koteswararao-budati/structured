@@ -1,6 +1,8 @@
 .calendarCard {
     height: 45vh;
+    min-height: 300px;
     width: 33vw;
+    min-width: 400px;
     background-color: white;
     display: grid;
     border-radius: 2px;
@@ -28,6 +30,7 @@
 
 .jumpButton {
     height: 5vh;
+    min-height: 40px;
     width: 90%;
     background-color: black;
     margin-bottom: 20px;

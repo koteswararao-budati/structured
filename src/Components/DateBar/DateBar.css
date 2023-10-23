@@ -1,5 +1,6 @@
 .NavBar {
     height: 8.125vh;
+    min-height: 65px;
     text-align: center;
     display: flex;
 }
