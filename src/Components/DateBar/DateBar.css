@@ -1,18 +1,21 @@
 .NavBar {
-    width: 100%;
     text-align: center;
     display: grid;
     grid-template-columns: auto auto auto auto auto auto auto;
+    grid-template-rows: 8.8vh;
+    min-height: 60px;
+    border: 1px solid white;
 }
 
 .NavBarElement {
+    min-height: 60px;
     min-width: 150px;
-    padding: 10px;
     color: white;
+    padding-top: 10px;
     border-left: .5px solid white;
     border-right: .5px solid white;
-    border-top: 1px solid white;
-    border-bottom: 1px solid white;
+    border-top: none;
+    border-bottom: none;
 }
 
 .NavBarElementToday {

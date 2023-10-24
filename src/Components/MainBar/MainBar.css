@@ -16,8 +16,8 @@
 
 
 .main {
-    height: 8.125vh;
-    min-height: 65px;
+    height: 7.5vh;
+    min-height: 50px;
     display: flex;
     justify-content: space-between;
     color: white;

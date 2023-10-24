@@ -43,7 +43,7 @@ function DateBar() {
     }
 
     return (
-        <div className={"NavBar"}>
+        <div className={"NavBar "}>
             {generateNavBarDate()}
         </div>
     )
