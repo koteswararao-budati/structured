@@ -1,10 +1,11 @@
-import "./MainBar.css"
+import styles from "./MainBar.module.css"
 import calendarIcon from "../../assets/calendar.svg";
 import {APP_STATE_CONSTANTS} from "../../Constants/CONSTANTS.ts";
 import {useContext} from "react";
 import {AppRenderState} from "../../Context/AppRenderContext.tsx";
 import LeftElements from "./LeftElements.tsx";
 import house from "../../assets/house.svg";
+import todo from "../../assets/todo.svg"
 
 function MainBar() {
 
@@ -37,13 +38,16 @@ function MainBar() {
 
 
     return (
-        <div className={"main"}>
+        <div className={styles.main}>
             <LeftElements/>
-            <div>
-                <button className={"home button btn btn-light"} onClick={updateHome}>
+            <div className={styles.rightElements}>
+                <button className={"btn btn-light"}>
+                    <img src={todo} alt={"todo"}/>
+                </button>
+                <button className={"btn btn-light " + styles.home} onClick={updateHome}>
                     <img src={house} alt={"Home"}/>
                 </button>
-                <button className={"button calendar btn btn-light"}
+                <button className={"btn btn-light " + styles.calendar}
                         onClick={updateCalendarDate}>
                     <img src={calendarIcon} alt={""}/>
                 </button>

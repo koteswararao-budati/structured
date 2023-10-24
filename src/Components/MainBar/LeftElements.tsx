@@ -1,3 +1,4 @@
+import styles from "./MainBar.module.css"
 import left from "../../assets/arrow-left.svg";
 import right from "../../assets/arrow-right.svg";
 import {APP_STATE_CONSTANTS, MONTHS} from "../../Constants/CONSTANTS.ts";
@@ -19,16 +20,16 @@ export default function LeftElements() {
         }
     }
     return (
-        <div className={"left-elements"}>
-            <button className={"button btn btn-light"} onClick={() => updateWeek(-7)}><b><img src={left}
-                                                                                              alt={"left"}/></b>
+        <div className={styles.leftElements}>
+            <button className={"btn btn-light"} onClick={() => updateWeek(-7)}><b><img src={left}
+                                                                                       alt={"left"}/></b>
             </button>
-            <div className={"month"}>
+            <div className={styles.month}>
                 {months[date.getMonth()]} {date.getFullYear()}
             </div>
             <div>
-                <button className={"button btn btn-light"} onClick={() => updateWeek(+7)}><b><img src={right}
-                                                                                                  alt={"right"}/></b>
+                <button className={"btn btn-light"} onClick={() => updateWeek(+7)}><b><img src={right}
+                                                                                           alt={"right"}/></b>
                 </button>
             </div>
         </div>
