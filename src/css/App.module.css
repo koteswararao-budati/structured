@@ -1,6 +1,6 @@
 .mainApp {
-    height: 100svh;
-    max-height: 100svh;
+    border-radius: 10px;
+    height: 100vh;
     max-width: 100svw;
     background-color: black;
 }

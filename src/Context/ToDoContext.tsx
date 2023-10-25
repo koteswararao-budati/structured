@@ -14,19 +14,15 @@ interface Tasks {
 }
 
 interface State {
-    todoTask: boolean,
     tasks: Tasks | null
 }
 
 const initialState: State = {
-    todoTask: false,
     tasks: {date: new Date(), toDo: ["hello", "hi there", "how you Doing", "do Something", "how r u", "todo enter here"]}
 }
 
 function TodoStateFunction(state: State, action: Action): State {
     switch (action.type) {
-        case TODO_STATE_CONSTANTS.todoTask:
-            return {...state, todoTask: action.payload}
         case TODO_STATE_CONSTANTS.todoList:
             axios
                 .post("", action.payload)

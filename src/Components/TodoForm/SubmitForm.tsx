@@ -7,9 +7,7 @@ import {TODO_STATE_CONSTANTS} from "../../Constants/CONSTANTS.ts";
 
 export default function SubmitForm({todo}: { todo: string }) {
     const {selectedDate} = useContext(AppRenderState).state
-    const {state, dispatch} = useContext(TodoTasksContext)
-
-    console.log(state)
+    const {dispatch} = useContext(TodoTasksContext)
 
     const dispatchTodo = () => {
         if (dispatch !== null) {

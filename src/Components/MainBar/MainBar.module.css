@@ -1,7 +1,7 @@
 
 .main {
-    height: 7.5vh;
-    min-height: 50px;
+    height: 7vh;
+    min-height: 45px;
     min-width: 350px;
     display: flex;
     justify-content: space-between;
@@ -11,21 +11,20 @@
     border-left: 1px solid white;
     border-right: 1px solid white;
     border-radius: 10px;
-    padding: 0 10px;
     overflow-x: scroll;
 }
 
 .month {
     position: relative;
     font-size: 30px;
-    padding: 10px;
+    padding: 0 10px;
 }
 
 .leftElements {
     border-radius: 10px;
     border-bottom: 0;
     display: flex;
-    padding: 0 10px 0 10px;
+    padding: 0 10px;
     align-items: center;
     min-width: 400px;
 }
