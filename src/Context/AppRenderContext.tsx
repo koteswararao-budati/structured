@@ -12,7 +12,8 @@ export interface State {
     selectedDate: Date,
     calendarDate: Date,
     currentWeek: number,
-    displayCalendar: boolean
+    displayCalendar: boolean,
+    todoTask: boolean
 }
 
 const initialState: State = {
@@ -20,7 +21,8 @@ const initialState: State = {
     selectedDate: new Date(),
     calendarDate: new Date(),
     currentWeek: 0,
-    displayCalendar: false
+    displayCalendar: false,
+    todoTask: false
 }
 
 export function AppStateFunction(state: State, action: Action) {
@@ -43,6 +45,8 @@ export function AppStateFunction(state: State, action: Action) {
             return {...state, selectedDate: action.payload}
         case APP_STATE_CONSTANTS.calendarDisplay:
             return {...state, displayCalendar: action.payload}
+        case APP_STATE_CONSTANTS.todoTask:
+            return {...state, todoTask: action.payload}
         default:
             return state
     }

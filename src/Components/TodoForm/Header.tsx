@@ -1,5 +1,5 @@
 import styles from "./TodoForm.module.css";
-import {MONTHS, TODO_STATE_CONSTANTS} from "../../Constants/CONSTANTS.ts";
+import {APP_STATE_CONSTANTS, MONTHS, TODO_STATE_CONSTANTS} from "../../Constants/CONSTANTS.ts";
 import close from "../../assets/close.svg";
 import {useContext} from "react";
 import {AppRenderState} from "../../Context/AppRenderContext.tsx";
@@ -7,11 +7,11 @@ import {TodoTasksContext} from "../../Context/ToDoContext.tsx";
 
 export default function Header() {
     const {selectedDate} = useContext(AppRenderState).state
-    const {dispatch} = useContext(TodoTasksContext)
+    const {dispatch} = useContext(AppRenderState)
     const closeTodo = () => {
         if (dispatch !== null) {
             dispatch({
-                type: TODO_STATE_CONSTANTS.todoTask,
+                type: APP_STATE_CONSTANTS.todoTask,
                 payload: false
             })
         }

@@ -3,9 +3,14 @@ export const MONTHS = ["January", "February", "March", "April", "May", "June", "
 export const DAYS = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]
 
 export const APP_STATE_CONSTANTS =
-    {calendarDate: "CALENDAR_DATE", selectedDate: "SELECTED_DATE", currentWeek: "CURRENT_WEEK", calendarDisplay: "CALENDAR_DISPLAY"}
+    {
+        calendarDate: "CALENDAR_DATE",
+        selectedDate: "SELECTED_DATE",
+        currentWeek: "CURRENT_WEEK",
+        calendarDisplay: "CALENDAR_DISPLAY",
+        todoTask: "TODO_TASK"
+    }
 
 export const TODO_STATE_CONSTANTS = {
-    todoTask: "TODO_TASK",
     todoList: "TODO_LIST_UPDATE"
 }
