@@ -1,5 +1,6 @@
 .mainApp {
     height: 100svh;
     max-height: 100svh;
+    max-width: 100svw;
     background-color: black;
 }

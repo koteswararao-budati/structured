@@ -6,6 +6,7 @@ import {AppRenderState} from "../../Context/AppRenderContext.tsx";
 import LeftElements from "./LeftElements.tsx";
 import house from "../../assets/house.svg";
 import todo from "../../assets/todo.svg"
+import schedule from "../../assets/schedule.svg"
 
 function MainBar() {
 
@@ -49,7 +50,7 @@ function MainBar() {
             <LeftElements/>
             <div className={styles.rightElements}>
                 <button className={"btn btn-light"} onClick={toggleDisplay}>
-                    <img src={todo} alt={"todo"}/>
+                    <img src={state.displayTodo ? schedule : todo} alt={"todo"}/>
                 </button>
                 <button className={"btn btn-light " + styles.home} onClick={updateHome}>
                     <img src={house} alt={"Home"}/>

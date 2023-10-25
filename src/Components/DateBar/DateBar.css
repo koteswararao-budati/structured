@@ -7,13 +7,15 @@
     border: 1px solid white;
     background-color: black;
     border-radius: 10px;
+    overflow-x: scroll;
 }
 
 .NavBarElement {
+    display: grid;
+    align-content: center;
     min-height: 60px;
     min-width: 150px;
     color: white;
-    padding-top: 10px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     background-color: black;
     border-radius: 10px;

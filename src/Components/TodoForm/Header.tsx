@@ -10,7 +10,7 @@ export default function Header() {
     const closeTodo = () => {
         if (dispatch !== null) {
             dispatch({
-                type: APP_STATE_CONSTANTS.todoTask,
+                type: APP_STATE_CONSTANTS.todoTaskForm,
                 payload: false
             })
         }

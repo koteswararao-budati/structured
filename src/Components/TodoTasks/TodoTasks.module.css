@@ -1,12 +1,6 @@
 .tasks {
-    height: 83.6875vh;
-    display: grid;
-    grid-template-rows: auto auto;
     width: 100%;
     min-width: 400px;
-    border-radius: 10px;
-    border-left: 1px solid white;
-    border-right: 1px solid white;
 }
 
 .tasks * {
@@ -17,9 +11,6 @@
 .individualTask {
     position: static;
     color: white;
-    display: grid;
-    align-content: start;
-    overflow-y: scroll;
     margin: 0 30px;
 }
 
@@ -27,7 +18,6 @@
     display: grid;
     align-items: center;
     box-shadow: 0 4px 8px 0 rgba(255, 255, 255, 0.3);
-    background-color: black;
     border-radius: 10px;
     border: 1px solid white;
     height: 11vh;

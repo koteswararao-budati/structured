@@ -10,13 +10,13 @@ function TodoTasks() {
     const {state} = useContext(AppRenderState)
 
     const action = {
-        type: APP_STATE_CONSTANTS.todoTask,
+        type: APP_STATE_CONSTANTS.todoTaskForm,
         payload: true
     }
 
     return (
         <>
-            {state.todoTask && <TodoForm/>}
+            {state.todoTaskForm && <TodoForm/>}
             <div className={styles.tasks}>
                 <BodyHeader text={"Todo Tasks"} action={action}/>
                 <div className={styles.individualTask}>

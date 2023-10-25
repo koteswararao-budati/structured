@@ -35,9 +35,12 @@ function DateBar() {
                     onClick={() => {
                         updateDate(date)
                     }}>
-                    {days[date.getDay()].slice(0, 3)}
-                    <br/>
-                    {date.getDate()}
+                    <div>
+                        {days[date.getDay()]}
+                    </div>
+                    <div>
+                        {date.getDate()}
+                    </div>
                 </div>)
         })
     }

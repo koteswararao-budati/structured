@@ -7,15 +7,15 @@ import {AppRenderState} from "../../Context/AppRenderContext.tsx";
 
 
 function Schedule() {
-    const {todoTask} = useContext(AppRenderState).state
+    const {todoTaskForm} = useContext(AppRenderState).state
     const action = {
-        type: APP_STATE_CONSTANTS.todoTask,
+        type: APP_STATE_CONSTANTS.todoTaskForm,
         payload: true
     }
 
     return (
         <>
-            {todoTask && <TodoForm/>}
+            {todoTaskForm && <TodoForm/>}
             <div className={styles.container}>
                 <BodyHeader text={"Schedule"} action={action}/>
             </div>
