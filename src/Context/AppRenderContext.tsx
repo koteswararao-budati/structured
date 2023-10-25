@@ -25,7 +25,7 @@ const initialState: State = {
     currentWeek: 0,
     displayCalendar: false,
     todoTaskForm: false,
-    displayTodo: true,
+    displayTodo: false,
     displayScheduleForm: false
 }
 

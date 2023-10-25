@@ -1,21 +1,21 @@
 import styles from "./Schedule.module.css"
 import BodyHeader from "../TodoTasks/BodyHeader.tsx";
 import {APP_STATE_CONSTANTS} from "../../Constants/CONSTANTS.ts";
-import TodoForm from "../TodoForm/TodoForm.tsx";
 import {useContext} from "react";
 import {AppRenderState} from "../../Context/AppRenderContext.tsx";
+import ScheduleForm from "../ScheduleForm/ScheduleForm.tsx";
 
 
 function Schedule() {
-    const {todoTaskForm} = useContext(AppRenderState).state
+    const {displayScheduleForm} = useContext(AppRenderState).state
     const action = {
-        type: APP_STATE_CONSTANTS.todoTaskForm,
+        type: APP_STATE_CONSTANTS.displayScheduleForm,
         payload: true
     }
 
     return (
         <>
-            {todoTaskForm && <TodoForm/>}
+            {displayScheduleForm && <ScheduleForm/>}
             <div className={styles.container}>
                 <BodyHeader text={"Schedule"} action={action}/>
             </div>

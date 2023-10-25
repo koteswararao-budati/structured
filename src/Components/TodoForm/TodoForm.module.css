@@ -9,7 +9,7 @@
 }
 
 .todo {
-    position: fixed;
+    position: relative;
     top: 30%;
     left: 30%;
     background-color: #ffffff;
