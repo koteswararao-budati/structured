@@ -9,9 +9,16 @@ import todo from "../../assets/todo.svg"
 
 function MainBar() {
 
-    const appContext = useContext(AppRenderState)
-    const state = appContext.state
-    const dispatch = appContext.dispatch
+    const {state, dispatch} = useContext(AppRenderState)
+
+    const toggleDisplay = () => {
+        if (dispatch !== null) {
+            dispatch({
+                type: APP_STATE_CONSTANTS.displayTodo,
+                payload: !state.displayTodo
+            })
+        }
+    }
 
     const updateCalendarDate = () => {
         if (dispatch !== null) {
@@ -41,7 +48,7 @@ function MainBar() {
         <div className={styles.main}>
             <LeftElements/>
             <div className={styles.rightElements}>
-                <button className={"btn btn-light"}>
+                <button className={"btn btn-light"} onClick={toggleDisplay}>
                     <img src={todo} alt={"todo"}/>
                 </button>
                 <button className={"btn btn-light " + styles.home} onClick={updateHome}>

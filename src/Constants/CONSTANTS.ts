@@ -8,7 +8,8 @@ export const APP_STATE_CONSTANTS =
         selectedDate: "SELECTED_DATE",
         currentWeek: "CURRENT_WEEK",
         calendarDisplay: "CALENDAR_DISPLAY",
-        todoTask: "TODO_TASK"
+        todoTask: "TODO_TASK",
+        displayTodo: "DISPLAY_TODO"
     }
 
 export const TODO_STATE_CONSTANTS = {

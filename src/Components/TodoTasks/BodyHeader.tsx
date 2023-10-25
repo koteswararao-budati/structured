@@ -3,15 +3,17 @@ import addIcon from "../../assets/plus-circle.svg";
 import {useContext} from "react";
 import {AppRenderState} from "../../Context/AppRenderContext.tsx";
 
-export default function BodyHeader({text, type}: { text: string, type: string }) {
+interface Action {
+    type: string,
+    payload: boolean
+}
+
+export default function BodyHeader({text, action}: { text: string, action: Action }) {
 
     const {dispatch} = useContext(AppRenderState)
     const displayTask = () => {
         if (dispatch !== null) {
-            dispatch({
-                type: type,
-                payload: true
-            })
+            dispatch(action)
         }
     }
 

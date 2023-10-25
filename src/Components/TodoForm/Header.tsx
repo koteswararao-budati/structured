@@ -1,9 +1,8 @@
 import styles from "./TodoForm.module.css";
-import {APP_STATE_CONSTANTS, MONTHS, TODO_STATE_CONSTANTS} from "../../Constants/CONSTANTS.ts";
+import {APP_STATE_CONSTANTS, MONTHS,} from "../../Constants/CONSTANTS.ts";
 import close from "../../assets/close.svg";
 import {useContext} from "react";
 import {AppRenderState} from "../../Context/AppRenderContext.tsx";
-import {TodoTasksContext} from "../../Context/ToDoContext.tsx";
 
 export default function Header() {
     const {selectedDate} = useContext(AppRenderState).state

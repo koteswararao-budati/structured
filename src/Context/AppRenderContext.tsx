@@ -13,7 +13,8 @@ export interface State {
     calendarDate: Date,
     currentWeek: number,
     displayCalendar: boolean,
-    todoTask: boolean
+    todoTask: boolean,
+    displayTodo: boolean
 }
 
 const initialState: State = {
@@ -22,7 +23,8 @@ const initialState: State = {
     calendarDate: new Date(),
     currentWeek: 0,
     displayCalendar: false,
-    todoTask: false
+    todoTask: false,
+    displayTodo: true
 }
 
 export function AppStateFunction(state: State, action: Action) {
@@ -36,15 +38,16 @@ export function AppStateFunction(state: State, action: Action) {
             const {selectedDate} = state
             // eslint-disable-next-line no-case-declarations
             const updateSelectedDate = new Date(selectedDate.getFullYear(), selectedDate.getMonth(), selectedDate.getDate() + action.payload)
-            console.log(updateSelectedDate)
             return {
                 ...state, currentWeek: currentWeek,
                 selectedDate: updateSelectedDate
             }
+        case APP_STATE_CONSTANTS.displayTodo:
+            return {...state, displayTodo: action.payload}
         case APP_STATE_CONSTANTS.selectedDate:
             return {...state, selectedDate: action.payload}
         case APP_STATE_CONSTANTS.calendarDisplay:
-            return {...state, displayCalendar: action.payload}
+            return {...state, displayCalendar: action.payload, calendarDate: state.selectedDate}
         case APP_STATE_CONSTANTS.todoTask:
             return {...state, todoTask: action.payload}
         default:

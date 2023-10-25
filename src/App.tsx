@@ -1,9 +1,8 @@
 import styles from './css/App.module.css'
 import {AppRenderContext} from "./Context/AppRenderContext.tsx";
 import Navigation from "./Components/Navigation/Navigation.tsx";
-import TodoTasks from "./Components/TodoTasks/TodoTasks.tsx";
 import {ToDoContext} from "./Context/ToDoContext.tsx";
-import Schedule from "./Components/Schedule/Schedule.tsx";
+import Body from "./Body.tsx";
 
 function App() {
     document.title = "Structured";
@@ -12,10 +11,7 @@ function App() {
             <AppRenderContext>
                 <ToDoContext>
                     <Navigation/>
-                    <div className={styles.mainBody}>
-                        <TodoTasks/>
-                        <Schedule/>
-                    </div>
+                    <Body/>
                 </ToDoContext>
             </AppRenderContext>
         </div>

@@ -9,16 +9,20 @@ import {AppRenderState} from "../../Context/AppRenderContext.tsx";
 function TodoTasks() {
     const {state} = useContext(AppRenderState)
 
+    const action = {
+        type: APP_STATE_CONSTANTS.todoTask,
+        payload: true
+    }
 
     return (
         <>
             {state.todoTask && <TodoForm/>}
-                <div className={styles.tasks}>
-                    <BodyHeader text={"Todo Tasks"} type={APP_STATE_CONSTANTS.todoTask}/>
-                    <div className={styles.individualTask}>
-                        <TodoGenerator/>
-                    </div>
+            <div className={styles.tasks}>
+                <BodyHeader text={"Todo Tasks"} action={action}/>
+                <div className={styles.individualTask}>
+                    <TodoGenerator/>
                 </div>
+            </div>
         </>
     )
 }
