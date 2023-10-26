@@ -15,7 +15,6 @@ interface optionsState {
 
 export default function TodoGenerator() {
     const {state} = useContext(TodoTasksContext)
-    const [task,] = useState(state.tasks)
     const [editOptions, setEditOptionsState,] = useState<optionsState>({
         id: null,
     })
@@ -44,15 +43,26 @@ export default function TodoGenerator() {
         )
     }
     const generateTasks = () => {
-        return task?.toDo.map((item, index) => {
+        if (state?.length === 1 && state[0].action === "") {
+            return (
+                <div style={{color: "white", borderTop: "1px solid white",}}>
+                    <h4 style={{padding: "10px 0"}}>Caught up with all tasks!! 😉😎</h4>
+                </div>
+            )
+        }
+        return state?.map((item, index) => {
+                if (item.action === "") {
+                    return <div key={index}></div>
+                }
                 return (
                     <div key={index} className={styles.individualTask}>
                         {editOptions.id !== index ?
                             <div className={styles.addTask}
                             >
-                                <h5 className={styles.todo}>{item}</h5>
+                                <h5 className={styles.todo}>{item.action}</h5>
                                 <div className={styles.edit}>
-                                    <button className={"btn btn-light"}><FlagSVG color={"red"}/></button>
+                                    <button className={"btn btn-light"}><FlagSVG
+                                        color={item.flag !== "" ? item.flag : "darkgreen"}/></button>
                                     <button className={"btn btn-light"}
                                             onClick={() => setEditOptionsState({id: index})}
                                     ><img src={slider} alt={"slider"}/></button>

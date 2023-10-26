@@ -6,11 +6,9 @@ import {APP_STATE_CONSTANTS, TODO_STATE_CONSTANTS} from "../../Constants/CONSTAN
 
 
 export default function SubmitForm({todo, flagColor}: { todo: string, flagColor: string }) {
-    const {todoTaskForm} = useContext(AppRenderState).state
     const {dispatch} = useContext(AppRenderState)
     const dispatchAxios = useContext(TodoTasksContext).dispatch
 
-    console.log(todoTaskForm)
     const closeTodo = () => {
         if (dispatch !== null) {
             dispatch({
@@ -26,7 +24,7 @@ export default function SubmitForm({todo, flagColor}: { todo: string, flagColor:
             dispatchAxios({
                 type: TODO_STATE_CONSTANTS.todoList,
                 payload: {
-                    toDo: todo,
+                    action: todo,
                     flag: flagColor,
                     status: "incomplete"
                 }
@@ -37,7 +35,9 @@ export default function SubmitForm({todo, flagColor}: { todo: string, flagColor:
 
     return (
         <div className={styles.submit}>
-            <button onClick={dispatchTodo} className={styles.submitTask}>Add Task</button>
+            <button onClick={dispatchTodo} className={styles.submitTask} disabled={todo.length === 0}>Add
+                Task
+            </button>
             <button className={styles.submitTask} onClick={closeTodo}>Cancel</button>
         </div>
     )
