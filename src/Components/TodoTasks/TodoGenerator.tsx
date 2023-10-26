@@ -1,4 +1,4 @@
-import styles from "./TodoTasks.module.css";
+import styles from "./TodoGenerator.module.css";
 import FlagSVG from "../TodoForm/FlagSVG.tsx";
 import slider from "../../assets/sliders.svg";
 import check from "../../assets/check.svg";
@@ -22,7 +22,7 @@ export default function TodoGenerator() {
 
     const editButtonsGenerator = () => {
         return (
-            <div className={styles.editOptions + " " + styles.addTaskContainer}>
+            <div className={styles.editOptions + " "}>
                 <button
                     className={"btn btn-light"}
                 ><img src={check} alt={"completed"}/>
@@ -46,9 +46,9 @@ export default function TodoGenerator() {
     const generateTasks = () => {
         return task?.toDo.map((item, index) => {
                 return (
-                    <div key={index}>
+                    <div key={index} className={styles.individualTask}>
                         {editOptions.id !== index ?
-                            <div className={styles.addTaskContainer + " " + styles.addTask}
+                            <div className={styles.addTask}
                             >
                                 <h5 className={styles.todo}>{item}</h5>
                                 <div className={styles.edit}>
@@ -72,8 +72,8 @@ export default function TodoGenerator() {
 
 
     return (
-        <>
+        <div className={styles.addTaskContainer}>
             {generateTasks()}
-        </>
+        </div>
     )
 }

@@ -18,7 +18,7 @@ interface State {
 }
 
 const initialState: State = {
-    tasks: {date: new Date(), toDo: ["hello", "hi there", "how you Doing", "do Something", "how r u", "todo enter here"]}
+    tasks: {date: new Date(), toDo: ["hi there", "how you Doing", "do Something", "how r u", "todo enter here"]}
 }
 
 function TodoStateFunction(state: State, action: Action): State {

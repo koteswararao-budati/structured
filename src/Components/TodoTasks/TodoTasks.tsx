@@ -1,4 +1,3 @@
-import styles from "./TodoTasks.module.css"
 import TodoForm from "../TodoForm/TodoForm.tsx";
 import {useContext} from "react";
 import TodoGenerator from "./TodoGenerator.tsx";
@@ -17,12 +16,8 @@ function TodoTasks() {
     return (
         <>
             {state.todoTaskForm && <TodoForm/>}
-            <div className={styles.tasks}>
-                <BodyHeader text={"Todo Tasks"} action={action}/>
-                <div className={styles.individualTask}>
-                    <TodoGenerator/>
-                </div>
-            </div>
+            <BodyHeader text={"Todo Tasks"} action={action}/>
+            <TodoGenerator/>
         </>
     )
 }

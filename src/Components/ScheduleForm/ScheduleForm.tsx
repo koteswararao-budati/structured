@@ -26,13 +26,14 @@ function ScheduleForm() {
                     </button>
                 </div>
 
-                <input autoFocus={true} className={styles.input} placeholder={"Add Task"}
-                       onChange={(e) => setInputTask(e.target.value)}
-                       value={inputTask}/>
-                <div>
-                    
+                <div className={styles.main}>
+                    <input autoFocus={true} className={styles.input} placeholder={"Add Task"}
+                           onChange={(e) => setInputTask(e.target.value)}
+                           value={inputTask}/>
+                    <div>
+                        <h5>When?</h5>
+                    </div>
                 </div>
-
             </div>
         </div>
     )

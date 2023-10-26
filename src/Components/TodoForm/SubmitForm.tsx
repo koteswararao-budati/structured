@@ -2,30 +2,43 @@ import styles from "./TodoForm.module.css";
 import {useContext} from "react";
 import {TodoTasksContext} from "../../Context/ToDoContext.tsx";
 import {AppRenderState} from "../../Context/AppRenderContext.tsx";
-import {TODO_STATE_CONSTANTS} from "../../Constants/CONSTANTS.ts";
+import {APP_STATE_CONSTANTS, TODO_STATE_CONSTANTS} from "../../Constants/CONSTANTS.ts";
 
 
-export default function SubmitForm({todo}: { todo: string }) {
-    const {selectedDate} = useContext(AppRenderState).state
-    const {dispatch} = useContext(TodoTasksContext)
+export default function SubmitForm({todo, flagColor}: { todo: string, flagColor: string }) {
+    const {todoTaskForm} = useContext(AppRenderState).state
+    const {dispatch} = useContext(AppRenderState)
+    const dispatchAxios = useContext(TodoTasksContext).dispatch
 
-    const dispatchTodo = () => {
+    console.log(todoTaskForm)
+    const closeTodo = () => {
         if (dispatch !== null) {
             dispatch({
+                type: APP_STATE_CONSTANTS.todoTaskForm,
+                payload: false
+            })
+        }
+    }
+
+
+    const dispatchTodo = () => {
+        if (dispatchAxios !== null) {
+            dispatchAxios({
                 type: TODO_STATE_CONSTANTS.todoList,
                 payload: {
-                    date: new Date(selectedDate.getFullYear(), selectedDate.getMonth(), selectedDate.getDate()),
-                    toDo: todo
-
+                    toDo: todo,
+                    flag: flagColor,
+                    status: "incomplete"
                 }
             })
+            closeTodo()
         }
     }
 
     return (
         <div className={styles.submit}>
-            <button className={styles.submitTask}>Add One More</button>
-            <button className={styles.submitTask} onClick={dispatchTodo}>Done</button>
+            <button onClick={dispatchTodo} className={styles.submitTask}>Add Task</button>
+            <button className={styles.submitTask} onClick={closeTodo}>Cancel</button>
         </div>
     )
 }

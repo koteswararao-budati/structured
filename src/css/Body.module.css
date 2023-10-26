@@ -1,7 +1,7 @@
 .mainBody {
-    height: 83vh;
+    min-height: 84vh;
     display: grid;
-    grid-template-rows: auto auto;
+    align-content: start;
     min-width: 400px;
     border-radius: 10px;
     border-left: 1px solid white;

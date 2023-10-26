@@ -8,47 +8,36 @@
     overflow: scroll;
 }
 
-.todo {
+.todoForm {
     position: relative;
     top: 30%;
     left: 30%;
     background-color: #ffffff;
     color: black;
-    border: 1px solid black;
     border-radius: 5px;
-    padding: 0 10px 10px 10px;
-    height: 33vh;
+    padding: 10px;
+    height: 28vh;
     width: 40vw;
     min-width: 400px;
     z-index: 3;
     display: grid;
     grid-template-rows: 5vh auto;
     justify-content: center;
-}
-
-.close {
-    display: flex;
-    justify-content: space-between;
-    padding: 0 10px;
-}
-
-.close h5 {
-    padding: 10px 0;
+    min-height: 220px;
 }
 
 
 .tasks {
-    border: 1px solid black;
     border-radius: 5px;
-    margin: 0 10px 10px 10px;
     padding: 10px;
     width: 38svw;
+    min-height: 200px;
     min-width: 380px;
 }
 
 .tasks h3 {
     font-size: 15px;
-    height: 5svh;
+    min-height: 15px;
     background-color: black;
     color: white;
     padding: 10px 0;

@@ -1,11 +1,10 @@
 import styles from "./TodoForm.module.css"
 import {useState} from "react";
 import FlagSVG from "./FlagSVG.tsx";
-import Header from "./Header.tsx";
 import SubmitForm from "./SubmitForm.tsx";
 
 function TodoForm() {
-    const [buttonFlag, setButtonFlag] = useState<null | string>(null)
+    const [buttonFlag, setButtonFlag] = useState("")
     const [inputText, setInputText] = useState("")
     const svgGenerator = () => {
         const svgList = ["red", "orange", "darkgreen"]
@@ -17,9 +16,7 @@ function TodoForm() {
 
     return (
         <div className={styles.container}>
-            <div className={styles.todo}>
-
-                <Header/>
+            <div className={styles.todoForm}>
                 <div className={styles.tasks}>
                     <h3>Add Task</h3>
                     <div>
@@ -31,7 +28,7 @@ function TodoForm() {
                             {svgGenerator()}
                         </div>
                     </div>
-                    <SubmitForm todo={inputText}/>
+                    <SubmitForm todo={inputText} flagColor={buttonFlag}/>
                 </div>
 
             </div>
