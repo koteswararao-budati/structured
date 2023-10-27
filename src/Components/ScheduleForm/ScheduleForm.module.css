@@ -29,20 +29,19 @@
     margin-block-end: 0;
 }
 
-.main div {
+.main {
     padding: 20px 15px;
 }
 
 .input {
     font-size: 20px;
-    width: 80%;
-    margin: 10px 0 0 30px;
+    width: 100%;
     border: none;
     border-bottom: 1px solid black;
-}
-
-.input:focus {
     outline: none;
 }
 
+.time {
+    padding: 20px;
+}
 

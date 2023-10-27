@@ -35,8 +35,8 @@ export default function SubmitForm({todo, flagColor}: { todo: string, flagColor:
 
     return (
         <div className={styles.submit}>
-            <button onClick={dispatchTodo} className={styles.submitTask} disabled={todo.length === 0}>Add
-                Task
+            <button onClick={dispatchTodo} className={styles.submitTask} disabled={todo.length === 0}>
+                Add Task
             </button>
             <button className={styles.submitTask} onClick={closeTodo}>Cancel</button>
         </div>

@@ -3,6 +3,7 @@ import styles from "./ScheduleForm.module.css"
 import {useContext, useState} from "react";
 import {AppRenderState} from "../../Context/AppRenderContext.tsx";
 import {APP_STATE_CONSTANTS} from "../../Constants/CONSTANTS.ts";
+import TimeGenerator from "./TimeGenerator.tsx";
 
 function ScheduleForm() {
     const {dispatch} = useContext(AppRenderState)
@@ -30,8 +31,9 @@ function ScheduleForm() {
                     <input autoFocus={true} className={styles.input} placeholder={"Add Task"}
                            onChange={(e) => setInputTask(e.target.value)}
                            value={inputTask}/>
-                    <div>
+                    <div className={styles.time}>
                         <h5>When?</h5>
+                        <TimeGenerator/>
                     </div>
                 </div>
             </div>
