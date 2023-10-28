@@ -7,7 +7,7 @@ import {APP_STATE_CONSTANTS, TODO_STATE_CONSTANTS} from "../../Constants/CONSTAN
 
 export default function SubmitForm({todo, flagColor}: { todo: string, flagColor: string }) {
     const {dispatch} = useContext(AppRenderState)
-    const dispatchAxios = useContext(TodoTasksContext).dispatch
+    const dispatchAxios = useContext(TodoTasksContext).dispatchScheduleForm
 
     const closeTodo = () => {
         if (dispatch !== null) {

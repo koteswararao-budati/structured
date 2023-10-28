@@ -1,13 +1,8 @@
 import styles from "./AlertNotification.module.css";
 import bell from "../../assets/bell.svg";
 import close from "../../assets/x-lg.svg";
-import {scheduleFormInterface} from "../../Constants/INTERFACES.ts";
-import {Dispatch} from "react";
 
-export default function AlertNotification({scheduleState, setScheduleState}: {
-    scheduleState: scheduleFormInterface,
-    setScheduleState: Dispatch<scheduleFormInterface>
-}) {
+export default function AlertNotification() {
     return (
 
         <div>

@@ -7,7 +7,7 @@ export default function DatesGenerator() {
     //State Declaration
     const appState = useContext(AppRenderState)
     const {calendarDate} = appState.state
-    const dispatch = appState.dispatch
+    const dispatch = appState.dispatchScheduleForm
 
     // Variable Declaration
     const days = new Date(calendarDate.getFullYear(), calendarDate.getMonth() + 1, 0);

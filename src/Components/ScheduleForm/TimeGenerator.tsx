@@ -1,30 +1,42 @@
-import {Dispatch, useEffect, useState} from "react";
+import {useContext, useEffect, useState} from "react";
 import styles from "./TimeGenerator.module.css"
-import {scheduleFormInterface} from "../../Constants/INTERFACES.ts";
+import {ScheduleFormContextApi} from "../../Context/ScheduleFormContext.tsx";
+import {SCHEDULE_FORM_CONSTANTS} from "../../Constants/CONSTANTS.ts";
 
-export default function TimeGenerator({scheduleState, setScheduleState}: {
-    scheduleState: scheduleFormInterface,
-    setScheduleState: Dispatch<scheduleFormInterface>
-}) {
+export default function TimeGenerator() {
+
+    const {time, duration} = useContext(ScheduleFormContextApi).state
+    const dispatch = useContext(ScheduleFormContextApi).dispatchScheduleForm
+
+
+    useEffect(() => {
+        setUpdateTime(calTime(duration))
+        if (dispatch) {
+            dispatch({
+                type: SCHEDULE_FORM_CONSTANTS.time,
+                payload: new Date()
+            })
+        }
+    }, [duration]);
 
     const calTime = (num = 5) => {
-        return new Date((scheduleState.time.getTime() + num * 60000))
+        return new Date((time.getTime() + num * 60000))
     }
     const [updateTime, setUpdateTime] = useState(calTime());
 
     const incDec = (val = "+") => {
         if (val === "+") {
-            setScheduleState({...scheduleState, time: calTime()})
-            setUpdateTime(calTime(5 + scheduleState.duration))
+            if (dispatch) {
+                dispatch({type: SCHEDULE_FORM_CONSTANTS.time, payload: calTime()})
+            }
+            setUpdateTime(calTime(5 + duration))
         } else {
-            setScheduleState({...scheduleState, time: calTime(-5)})
-            setUpdateTime(calTime(-5 + scheduleState.duration))
+            if (dispatch) {
+                dispatch({type: SCHEDULE_FORM_CONSTANTS.time, payload: calTime(-5)})
+            }
+            setUpdateTime(calTime(-5 + duration))
         }
     }
-
-    useEffect(() => {
-        setUpdateTime(calTime(scheduleState.duration))
-    }, [scheduleState.duration]);
 
 
     return (
@@ -33,8 +45,11 @@ export default function TimeGenerator({scheduleState, setScheduleState}: {
             <div className={styles.timer}>
                 <button onClick={() => incDec("-")}>-</button>
                 <button className={styles.timerDisplay}>
-                    {scheduleState.time.getHours() > 12 ? scheduleState.time.getHours() - 12 : scheduleState.time.getHours()} : {scheduleState.time.getMinutes()}
-                    {scheduleState.duration > 1 && " - " + (updateTime.getHours() > 12 ? updateTime.getHours() - 12 : updateTime.getHours()) + ": " + updateTime.getMinutes()}
+                    {(time.getHours() > 12 ? time.getHours() - 12 : time.getHours()) + " : " + time.getMinutes()}
+                    {time.getHours() < 12 && updateTime.getHours() > 11 ? " am" : ""}
+                    {duration > 1 && " - " + (updateTime.getHours() > 12 ? updateTime.getHours() - 12
+                        : updateTime.getHours()) + ": " + updateTime.getMinutes()}
+                    {updateTime.getHours() >= 12 ? " pm" : " am"}
                 </button>
                 <button onClick={() => incDec()}>+</button>
             </div>

@@ -1,11 +1,10 @@
 import styles from "./TimeGenerator.module.css";
-import {Dispatch, useState} from "react";
-import {scheduleFormInterface} from "../../Constants/INTERFACES.ts";
+import {useContext, useState} from "react";
+import {ScheduleFormContextApi} from "../../Context/ScheduleFormContext.tsx";
+import {SCHEDULE_FORM_CONSTANTS} from "../../Constants/CONSTANTS.ts";
 
-export default function Duration({scheduleState, setScheduleState}: {
-    scheduleState: scheduleFormInterface,
-    setScheduleState: Dispatch<scheduleFormInterface>
-}) {
+export default function Duration() {
+    const {dispatchScheduleForm} = useContext(ScheduleFormContextApi)
     const [state, setState] = useState(
         {
             displayInput: false,
@@ -16,8 +15,12 @@ export default function Duration({scheduleState, setScheduleState}: {
     )
 
     const updateState = (num: number) => {
-        setState({...state, selectedDuration: num})
-        setScheduleState({...scheduleState, duration: num})
+        if (dispatchScheduleForm) {
+            dispatchScheduleForm({
+                type: SCHEDULE_FORM_CONSTANTS.duration,
+                payload: num
+            })
+        }
     }
 
     return (

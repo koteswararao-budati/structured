@@ -16,3 +16,10 @@ export const APP_STATE_CONSTANTS =
 export const TODO_STATE_CONSTANTS = {
     todoList: "TODO_LIST_UPDATE"
 }
+
+export const SCHEDULE_FORM_CONSTANTS = {
+    time: "TIME",
+    duration: "DURATION",
+    recursion: "RECURSION",
+    color: "COLOR"
+}

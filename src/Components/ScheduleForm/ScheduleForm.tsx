@@ -1,6 +1,6 @@
 import close from "../../assets/close.svg"
 import styles from "./ScheduleForm.module.css"
-import {useContext, useEffect, useState} from "react";
+import {useContext} from "react";
 import {AppRenderState} from "../../Context/AppRenderContext.tsx";
 import {APP_STATE_CONSTANTS} from "../../Constants/CONSTANTS.ts";
 import TimeGenerator from "./TimeGenerator.tsx";
@@ -8,18 +8,9 @@ import Duration from "./Duration.tsx";
 import ColorGenerator from "./ColorGenerator.tsx";
 import SetRecurring from "./SetRecurring.tsx";
 import AlertNotification from "./AlertNotification.tsx";
-import {scheduleFormInterface} from "../../Constants/INTERFACES.ts";
 
 function ScheduleForm() {
     const {dispatch} = useContext(AppRenderState)
-    const [state, setState] = useState<scheduleFormInterface>({
-        time: new Date(),
-        inputTask: "",
-        duration: 15,
-        color: "",
-        recursion: 0,
-        notification: []
-    })
 
 
     const closeForm = () => {
@@ -41,14 +32,12 @@ function ScheduleForm() {
                 </div>
 
                 <div className={styles.main}>
-                    <input autoFocus={true} className={styles.input} placeholder={"Add Task"}
-                           onChange={(e) => setState({...state, inputTask: e.target.value})}
-                           value={state.inputTask}/>
-                    <TimeGenerator scheduleState={state} setScheduleState={setState}/>
-                    <Duration scheduleState={state} setScheduleState={setState}/>
-                    <ColorGenerator scheduleState={state} setScheduleState={setState}/>
-                    <SetRecurring scheduleState={state} setScheduleState={setState}/>
-                    <AlertNotification scheduleState={state} setScheduleState={setState}/>
+                    <input autoFocus={true} className={styles.input} placeholder={"Add Task"}/>
+                    <TimeGenerator/>
+                    <Duration/>
+                    <ColorGenerator/>
+                    <SetRecurring/>
+                    <AlertNotification/>
                     <div>
                         <h5 style={{margin: "20px 0"}}>Any Details?</h5>
                         <textarea placeholder={"Add notes, meeting links, or phone numbers"}

@@ -4,6 +4,7 @@ import {APP_STATE_CONSTANTS} from "../../Constants/CONSTANTS.ts";
 import {useContext} from "react";
 import {AppRenderState} from "../../Context/AppRenderContext.tsx";
 import ScheduleForm from "../ScheduleForm/ScheduleForm.tsx";
+import {ScheduleFormContext} from "../../Context/ScheduleFormContext.tsx";
 
 
 function Schedule() {
@@ -15,7 +16,9 @@ function Schedule() {
 
     return (
         <>
-            {displayScheduleForm && <ScheduleForm/>}
+            <ScheduleFormContext>
+                {displayScheduleForm && <ScheduleForm/>}
+            </ScheduleFormContext>
             <div className={styles.container}>
                 <BodyHeader text={"Schedule"} action={action}/>
             </div>

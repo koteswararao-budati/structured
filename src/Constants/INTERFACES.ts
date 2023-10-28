@@ -1,4 +1,4 @@
-export interface scheduleFormInterface {
+export type  ScheduleFormInterface = {
     time: Date,
     inputTask: string,
     duration: number,
