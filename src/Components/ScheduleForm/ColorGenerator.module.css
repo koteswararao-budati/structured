@@ -1,0 +1,33 @@
+
+.color {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    padding: 10px 0 5px 0;
+    justify-content: space-evenly;
+    align-items: center;
+    background-color: #e8e8e8;
+    border-radius: 10px;
+}
+
+.colorButton {
+    background-color: transparent;
+    border: none;
+}
+
+.colorInput {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    width: 30px;
+    border: none;
+    outline: none;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.colorInput::-webkit-color-swatch {
+    border: 1px solid black;
+    outline: 2px solid blue;
+    border-radius: 50%;
+}

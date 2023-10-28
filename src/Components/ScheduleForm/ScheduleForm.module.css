@@ -46,3 +46,29 @@
     padding: 20px;
 }
 
+
+.textArea {
+    width: 100%;
+    resize: none;
+    height: 100px;
+}
+
+.createTask {
+    width: 100%;
+    color: white;
+    background-color: black;
+    margin: 10px 0;
+    border: none;
+    border-radius: 10px;
+    height: 40px;
+    padding-top: 5px;
+}
+
+.createTask:hover {
+    color: black;
+    background-color: white;
+    border: 1px solid black;
+}
+
+
+

@@ -1,13 +1,26 @@
 import close from "../../assets/close.svg"
 import styles from "./ScheduleForm.module.css"
-import {useContext, useState} from "react";
+import {useContext, useEffect, useState} from "react";
 import {AppRenderState} from "../../Context/AppRenderContext.tsx";
 import {APP_STATE_CONSTANTS} from "../../Constants/CONSTANTS.ts";
 import TimeGenerator from "./TimeGenerator.tsx";
+import Duration from "./Duration.tsx";
+import ColorGenerator from "./ColorGenerator.tsx";
+import SetRecurring from "./SetRecurring.tsx";
+import AlertNotification from "./AlertNotification.tsx";
+import {scheduleFormInterface} from "../../Constants/INTERFACES.ts";
 
 function ScheduleForm() {
     const {dispatch} = useContext(AppRenderState)
-    const [inputTask, setInputTask] = useState("")
+    const [state, setState] = useState<scheduleFormInterface>({
+        time: new Date(),
+        inputTask: "",
+        duration: 15,
+        color: "",
+        recursion: 0,
+        notification: []
+    })
+
 
     const closeForm = () => {
         if (dispatch !== null) {
@@ -29,12 +42,20 @@ function ScheduleForm() {
 
                 <div className={styles.main}>
                     <input autoFocus={true} className={styles.input} placeholder={"Add Task"}
-                           onChange={(e) => setInputTask(e.target.value)}
-                           value={inputTask}/>
-                    <div className={styles.time}>
-                        <h5>When?</h5>
-                        <TimeGenerator/>
+                           onChange={(e) => setState({...state, inputTask: e.target.value})}
+                           value={state.inputTask}/>
+                    <TimeGenerator scheduleState={state} setScheduleState={setState}/>
+                    <Duration scheduleState={state} setScheduleState={setState}/>
+                    <ColorGenerator scheduleState={state} setScheduleState={setState}/>
+                    <SetRecurring scheduleState={state} setScheduleState={setState}/>
+                    <AlertNotification scheduleState={state} setScheduleState={setState}/>
+                    <div>
+                        <h5 style={{margin: "20px 0"}}>Any Details?</h5>
+                        <textarea placeholder={"Add notes, meeting links, or phone numbers"}
+                                  className={styles.textArea}></textarea>
                     </div>
+
+                    <button className={styles.createTask}><h5>Create Task</h5></button>
                 </div>
             </div>
         </div>

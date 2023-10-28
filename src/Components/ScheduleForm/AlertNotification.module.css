@@ -1,0 +1,19 @@
+.alerts {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 0 10px;
+}
+
+.alerts h6 {
+    margin-block-end: 0;
+}
+
+.alerts h6 img {
+    padding: 0 10px 0 0;
+}
+
+.alertClose {
+    justify-content: end;
+}
