@@ -17,13 +17,17 @@ export default function AlertNotification() {
     }
 
     const addAlertsToState = (num: number) => {
-        setAlertState([...alertState, `Alert at ${num} before Start of the task`])
+        if (num <= 0) {
+            return null;
+        }
+        setAlertState([...alertState, `Alert at ${num} ${num > 1 ? 'minutes' : 'minute'} before the task starts`])
         if (dispatchScheduleForm) {
             dispatchScheduleForm({
                 type: "",
                 payload: -num
             })
         }
+        setInputDuration(1)
         setDisplayState(false)
     }
 
@@ -34,7 +38,7 @@ export default function AlertNotification() {
             {alertState.map((item, index) => {
                 return (
                     <div className={styles.alerts} key={index}>
-                        <h6>
+                        <h6 style={{fontSize: "14px"}}>
                             <img src={bell} alt={"bell"}/>
                             {item}</h6>
                         <button className={"btn btn-light"} onClick={() => deleteAlert(index)}>
@@ -45,10 +49,14 @@ export default function AlertNotification() {
             })}
             {displayState && <>
                 <div className={styles.alerts}>
-                    <h6>
+                    <h6 style={{fontSize: "14px"}}>
                         <img src={bell} alt={"bell"}/>
-                        Alert at <input value={inputDuration} onChange={(e) => setInputDuration(Number(e.target.value))}
-                                        className={styles.inputTaskMinutes} type={"number"}/>before Start of the task
+                        Alert at <input autoFocus={true}
+                                        value={inputDuration > 0 ? inputDuration : ""}
+                                        onChange={(e) => setInputDuration(Number(e.target.value))}
+                                        className={styles.inputTaskMinutes}
+                                        type={"number"}/> {inputDuration > 1 ? "minutes " : "minute "}before the task
+                        starts
 
                     </h6>
                     <button onClick={() => addAlertsToState(inputDuration)} className={"btn btn-light"}>
@@ -57,7 +65,7 @@ export default function AlertNotification() {
                 </div>
             </>}
             <div>
-                <button onClick={() => setDisplayState(true)} className={"btn btn-light"}
+                <button onClick={() => setDisplayState(!displayState)} className={"btn btn-light"}
                         style={{width: "100%"}}>
                     + Add Alerts
                 </button>
