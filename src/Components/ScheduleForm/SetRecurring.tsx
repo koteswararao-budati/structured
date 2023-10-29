@@ -5,10 +5,10 @@ import {SCHEDULE_FORM_CONSTANTS} from "../../Constants/CONSTANTS.ts";
 
 export default function SetRecurring() {
     const {dispatchScheduleForm} = useContext(ScheduleFormContextApi)
-    const [recursionState, setRecurrisonState] = useState<number>(0);
+    const [recursionState, setRecursionState] = useState<number>(0);
 
     const updateRecursion = (index: number) => {
-        setRecurrisonState(index)
+        setRecursionState(index)
         if (dispatchScheduleForm) {
             dispatchScheduleForm({
                 type: SCHEDULE_FORM_CONSTANTS.recursion,

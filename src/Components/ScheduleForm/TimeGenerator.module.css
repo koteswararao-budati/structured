@@ -53,17 +53,6 @@
     background-color: #d5d5d5;
 }
 
-.active {
-    background-color: black;
-    color: white;
-}
-
-.active:hover {
-    background-color: black;
-    color: white;
-}
-
-
 .inputDuration {
     display: grid;
     grid-template-columns: auto auto;
@@ -78,11 +67,50 @@
     border: none;
     border-bottom: 1px solid black;
     outline: none;
+    width: 15%;
 }
 
 .addDuration[type=number]::-webkit-outer-spin-button,
 .addDuration::-webkit-inner-spin-button {
     -webkit-appearance: none;
     margin: 0
+}
+
+.addDuration [type=number].addDuration {
+    margin: 0;
+    -webkit-appearance: none;
+}
+
+.active {
+    background-color: black;
+    color: white;
+}
+
+.active:hover {
+    background-color: black;
+    color: white;
+}
+
+.textArea {
+    width: 100%;
+    resize: none;
+    height: 100px;
+}
+
+.createTask {
+    width: 100%;
+    color: white;
+    background-color: black;
+    margin: 10px 0;
+    border: none;
+    border-radius: 10px;
+    height: 40px;
+    padding-top: 3px;
+}
+
+.createTask:hover {
+    color: black;
+    background-color: white;
+    border: 1px solid black;
 }
 

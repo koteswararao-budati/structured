@@ -21,5 +21,7 @@ export const SCHEDULE_FORM_CONSTANTS = {
     time: "TIME",
     duration: "DURATION",
     recursion: "RECURSION",
-    color: "COLOR"
+    color: "COLOR",
+    alerts: "ALERTS",
+    notes: "NOTES"
 }
