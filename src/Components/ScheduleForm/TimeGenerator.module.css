@@ -53,6 +53,17 @@
     background-color: #d5d5d5;
 }
 
+.active {
+    background-color: black;
+    color: white;
+}
+
+.active:hover {
+    background-color: black;
+    color: white;
+}
+
+
 .inputDuration {
     display: grid;
     grid-template-columns: auto auto;

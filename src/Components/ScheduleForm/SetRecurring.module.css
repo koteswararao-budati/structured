@@ -1,0 +1,33 @@
+.color {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    padding: 10px 0 10px 0;
+    justify-content: space-evenly;
+    align-items: center;
+    background-color: #e8e8e8;
+    border-radius: 10px;
+}
+
+.durationButton {
+    background-color: white;
+    border-radius: 5px;
+    border: 2px solid black;
+    min-height: 35px;
+    min-width: 50px;
+}
+
+.durationButton:hover {
+    background-color: #d5d5d5;
+}
+
+.active {
+    background-color: black;
+    color: white;
+}
+
+.active:hover {
+    background-color: black;
+    color: white;
+}
+

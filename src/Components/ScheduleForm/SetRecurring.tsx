@@ -1,12 +1,14 @@
-import styles from "./TimeGenerator.module.css";
-import {useContext} from "react";
+import styles from "./SetRecurring.module.css";
+import {useContext, useState} from "react";
 import {ScheduleFormContextApi} from "../../Context/ScheduleFormContext.tsx";
 import {SCHEDULE_FORM_CONSTANTS} from "../../Constants/CONSTANTS.ts";
 
 export default function SetRecurring() {
     const {dispatchScheduleForm} = useContext(ScheduleFormContextApi)
+    const [recursionState, setRecurrisonState] = useState<number>(0);
 
     const updateRecursion = (index: number) => {
+        setRecurrisonState(index)
         if (dispatchScheduleForm) {
             dispatchScheduleForm({
                 type: SCHEDULE_FORM_CONSTANTS.recursion,
@@ -22,7 +24,8 @@ export default function SetRecurring() {
                 {["Once", "Daily", "Weekly", "Monthly"].map((item, index) => {
                     return (
                         <button onClick={() => updateRecursion(index)}
-                                className={styles.durationButton} key={item}>{item}</button>
+                                className={styles.durationButton + " " + (recursionState === index ? styles.active : "")}
+                                key={item}>{item}</button>
                     )
                 })}
             </div>
