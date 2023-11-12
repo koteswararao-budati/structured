@@ -1,0 +1,27 @@
+name: React CI
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  build_test:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [14.x, 16.x, 20.x]
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          repository: koteswararao-budati/portfoli
+
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version}}
+      - name: install dependencies
+        run: |
+          npm ci
+          npm run build
